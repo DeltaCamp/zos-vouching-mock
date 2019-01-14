@@ -1,0 +1,17 @@
+{
+  "name": "zeppelin-vouching-contract-mocks",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "./scripts/ganache.sh",
+    "bootstrap": "truffle exec scripts/bootstrap-faucet.js"
+  },
+  "dependencies": {
+    "ganache-cli": "^6.2.5",
+    "openzeppelin-eth": "^2.0.2",
+    "shelljs": "^0.8.3",
+    "zos": "^2.1.0",
+    "zos-vouching": "zeppelinos/zos-vouching#implement_vouching_contract_v_2_1"
+  }
+}
