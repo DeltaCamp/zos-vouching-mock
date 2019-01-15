@@ -4,14 +4,22 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "start": "./scripts/ganache.sh",
-    "bootstrap": "truffle exec scripts/bootstrap-faucet.js"
+    "start": "HDWALLET_MNEMONIC='front ski wolf horse woman mushroom frown fold vacuum alert total sugar' ./scripts/ganache.sh",
+    "migrate": "truffle migrate --network local",
+    "push": "zos push --network local --from 0x51f595ef681c3b3b6b6949fbbb36b7d98daa15bf",
+    "update-all": "zos update --all --network local --from 0x51f595ef681c3b3b6b6949fbbb36b7d98daa15bf",
+    "push-and-update": "yarn push && yarn update-all && zos-truffle-merge -n 1234 zos.dev-1234.json",
+    "bootstrap": "truffle exec scripts/bootstrap.js --network local",
+    "console": "truffle console --network local"
   },
   "dependencies": {
+    "chalk": "^2.4.2",
     "ganache-cli": "^6.2.5",
     "openzeppelin-eth": "^2.0.2",
     "shelljs": "^0.8.3",
+    "truffle": "^5.0.1",
     "zos": "^2.1.0",
+    "zos-truffle-merge": "^0.0.3",
     "zos-vouching": "zeppelinos/zos-vouching#implement_vouching_contract_v_2_1"
   }
 }

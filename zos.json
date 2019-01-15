@@ -2,5 +2,9 @@
   "zosversion": "2",
   "name": "zos-vouching-mock",
   "version": "0.1.0",
-  "contracts": {}
+  "contracts": {
+    "Migrations": "Migrations",
+    "ZepToken": "ZepToken",
+    "MockVouching": "MockVouching"
+  }
 }
