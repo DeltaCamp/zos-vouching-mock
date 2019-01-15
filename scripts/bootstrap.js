@@ -31,6 +31,25 @@ async function bootstrap() {
     "0x0000000000000000000000000000000000000001",
     { from: accounts[0] }
   )
+
+
+  console.log(chalk.red(`Registering ${accounts[2]}...`))
+  await mockVouching.register(
+    accounts[2],
+    web3.utils.toWei('100', 'ether'),
+    "test_uri",
+    "0x0000000000000000000000000000000000000001",
+    { from: accounts[2] }
+  )
+
+  console.log(chalk.red(`Registering ${accounts[3]}...`))
+  await mockVouching.register(
+    accounts[3],
+    web3.utils.toWei('100', 'ether'),
+    "test_uri",
+    "0x0000000000000000000000000000000000000001",
+    { from: accounts[3] }
+  )
 }
 
 module.exports = function(callback) {
