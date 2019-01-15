@@ -22,12 +22,12 @@ async function bootstrap() {
     }
   }
 
-  // create some vouches
+  // create some vouched packages
   console.log(chalk.red(`Registering ${accounts[0]}...`))
   await mockVouching.register(
     accounts[0],
-    web3.utils.toWei('100', 'ether'),
-    "test_uri",
+    web3.utils.toWei('888', 'ether'),
+    "/testPackage1.json",
     "0x0000000000000000000000000000000000000001",
     { from: accounts[0] }
   )
@@ -37,7 +37,7 @@ async function bootstrap() {
   await mockVouching.register(
     accounts[2],
     web3.utils.toWei('100', 'ether'),
-    "test_uri",
+    "/testPackage2.json",
     "0x0000000000000000000000000000000000000001",
     { from: accounts[2] }
   )
@@ -45,8 +45,8 @@ async function bootstrap() {
   console.log(chalk.red(`Registering ${accounts[3]}...`))
   await mockVouching.register(
     accounts[3],
-    web3.utils.toWei('100', 'ether'),
-    "test_uri",
+    web3.utils.toWei('20', 'ether'),
+    "/testPackage3.json",
     "0x0000000000000000000000000000000000000001",
     { from: accounts[3] }
   )
