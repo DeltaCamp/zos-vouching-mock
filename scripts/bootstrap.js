@@ -35,7 +35,7 @@ async function bootstrap() {
   await mockVouching.register(
     firstPackage,
     web3.utils.toWei('88', 'ether'),
-    "/testPackage1.json",
+    "https://raw.githubusercontent.com/zeppelinos/zos-vouching/master/package.json",
     "0x0000000000000000000000000000000000000001",
     { from: accounts[0] }
   )
@@ -45,7 +45,7 @@ async function bootstrap() {
   await mockVouching.register(
     secondPackage,
     web3.utils.toWei('100', 'ether'),
-    "/testPackage2.json",
+    "https://raw.githubusercontent.com/zeppelinos/zos/98c9fc00699d0ed216950623539375fe1f0c2867/packages/lib/package.json",
     "0x0000000000000000000000000000000000000001",
     { from: accounts[0] }
   )
@@ -55,7 +55,7 @@ async function bootstrap() {
   await mockVouching.register(
     thirdPackage,
     web3.utils.toWei('20', 'ether'),
-    "/testPackage3.json",
+    "https://raw.githubusercontent.com/gnosis/safe-contracts/102e632d051650b7c4b0a822123f449beaf95aed/package.json",
     "0x0000000000000000000000000000000000000001",
     { from: accounts[0] }
   )

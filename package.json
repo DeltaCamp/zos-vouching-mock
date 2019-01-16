@@ -12,7 +12,8 @@
     "push-and-update": "yarn push && yarn update-all && zos-truffle-merge -n 1234 zos.dev-1234.json",
     "bootstrap": "truffle exec scripts/bootstrap.js --network local",
     "bootstrap-ropsten": "truffle exec scripts/bootstrap.js --network ropsten",
-    "console": "truffle console --network local"
+    "console": "truffle console --network local",
+    "version": "truffle version"
   },
   "dependencies": {
     "chalk": "^2.4.2",
@@ -24,6 +25,6 @@
     "truffle-hdwallet-provider": "^1.0.0-web3one.5",
     "zos": "^2.1.0",
     "zos-truffle-merge": "^0.0.3",
-    "zos-vouching": "zeppelinos/zos-vouching#implement_vouching_contract_v_2_1"
+    "zos-vouching": "zeppelinos/zos-vouching#ae6b93e7965554304b8dbb420f4d133fe317fa6d"
   }
 }
