@@ -6,6 +6,7 @@
   "scripts": {
     "start": "./scripts/ganache.sh",
     "migrate": "truffle migrate --network local",
+    "migrate-ropsten": "truffle migrate --network ropsten",
     "push": "zos push",
     "update-all": "zos update --all",
     "push-and-update": "yarn push && yarn update-all && zos-truffle-merge -n 1234 zos.dev-1234.json",

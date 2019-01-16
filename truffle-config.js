@@ -53,13 +53,13 @@ module.exports = {
     ropsten: {
       provider: () => new HDWalletProvider(
         process.env.HDWALLET_MNEMONIC,
-        "https://ropsten.infura.io/v3/91bc6c5683964b56a4bba1d2ccd171a3",
+        process.env.INFURA_PROVIDER_URL,
         0, // we start with address[0]
         2 // notice that we unlock two: which will be address[0] and address[1]
       ),
       network_id: 3,
-      gas: 8000000,
-      // gasPrice: 10 * 1000000000
+      gas: 7000000,
+      gasPrice: 20 * 1000000000
     }
 
     // Another network with more advanced options...
