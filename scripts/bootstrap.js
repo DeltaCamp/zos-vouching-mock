@@ -3,20 +3,31 @@ const MockVouching = artifacts.require('MockVouching.sol')
 const ZepToken = artifacts.require('ZepToken.sol')
 const chalk = require('chalk')
 
+const MINT_AMOUNT = new BN(web3.utils.toWei('1000', 'ether'))
+
 async function bootstrap() {
   const mockVouching = await MockVouching.deployed()
   const zepToken = await ZepToken.deployed()
 
-  const accounts = await web3.eth.getAccounts()
-  const account = accounts[0]
-
-  const mintAmount = web3.utils.toWei('1000', 'ether')
-  const balance = await zepToken.balanceOf(account)
-  if (balance.lt(new BN(mintAmount))) {
-    console.log(chalk.green(`Minting 1000 tokens to ${account}...`))
-    await zepToken.mint(account, mintAmount)
+  async function mint(account, mintAmount) {
+    const balance = await zepToken.balanceOf(account)
+    if (balance.lt(mintAmount)) {
+      console.log(chalk.green(`Minting 1000 tokens to ${account}...`))
+      await zepToken.mint(account, mintAmount)
+      await zepToken.approve(mockVouching.address, mintAmount, { from: account })
+    }
   }
-  await zepToken.approve(mockVouching.address, mintAmount, { from: account })
+
+  const accounts = await web3.eth.getAccounts()
+  const owner = accounts[0]
+
+  const testAccounts = [
+    owner,
+  ]
+
+  for (i in testAccounts) {
+    await mint(testAccounts[i], MINT_AMOUNT)
+  }
 
   // create some vouched packages
   const firstPackage = '0xB8c77482e45F1F44dE1745F52C74426C631bDD52'
