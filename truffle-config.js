@@ -55,7 +55,7 @@ module.exports = {
         process.env.HDWALLET_MNEMONIC,
         process.env.INFURA_PROVIDER_URL,
         0, // we start with address[0]
-        2 // notice that we unlock two: which will be address[0] and address[1]
+        4 // notice that we unlock two: which will be address[0] and address[1]
       ),
       network_id: 3,
       gas: 7000000,
