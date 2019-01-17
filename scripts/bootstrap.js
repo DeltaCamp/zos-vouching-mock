@@ -20,9 +20,13 @@ async function bootstrap() {
 
   const accounts = await web3.eth.getAccounts()
   const owner = accounts[0]
+  const challenger1 = accounts[2]
+  const challenger2 = accounts[3]
 
   const testAccounts = [
     owner,
+    challenger1,
+    challenger2
   ]
 
   for (i in testAccounts) {
@@ -32,23 +36,31 @@ async function bootstrap() {
   // create some vouched packages
   const firstPackage = '0xB8c77482e45F1F44dE1745F52C74426C631bDD52'
   console.log(chalk.red(`Registering ${firstPackage}...`))
+  const firstMetadataUri = "https://raw.githubusercontent.com/zeppelinos/zos-vouching/master/package.json"
+  const metadataHash = "0x0000000000000000000000000000000000000001"
   await mockVouching.register(
     firstPackage,
     web3.utils.toWei('88', 'ether'),
-    "https://raw.githubusercontent.com/zeppelinos/zos-vouching/master/package.json",
-    "0x0000000000000000000000000000000000000001",
-    { from: accounts[0] }
+    firstMetadataUri,
+    metadataHash,
+    { from: owner }
   )
+
+  await mockVouching.challenge(0, web3.utils.toWei('90', 'ether'), firstMetadataUri, metadataHash, { from: challenger1 })
 
   const secondPackage = '0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48'
   console.log(chalk.red(`Registering ${secondPackage}...`))
+  const secondMetadataUri = "https://raw.githubusercontent.com/zeppelinos/zos/98c9fc00699d0ed216950623539375fe1f0c2867/packages/lib/package.json"
   await mockVouching.register(
     secondPackage,
     web3.utils.toWei('100', 'ether'),
-    "https://raw.githubusercontent.com/zeppelinos/zos/98c9fc00699d0ed216950623539375fe1f0c2867/packages/lib/package.json",
-    "0x0000000000000000000000000000000000000001",
-    { from: accounts[0] }
+    secondMetadataUri,
+    metadataHash,
+    { from: owner }
   )
+
+  await mockVouching.challenge(1, web3.utils.toWei('42', 'ether'), secondMetadataUri, metadataHash, { from: challenger1 })
+  await mockVouching.challenge(1, web3.utils.toWei('17', 'ether'), secondMetadataUri, metadataHash, { from: challenger2 })
 
   const thirdPackage = '0x9f8f72aa9304c8b593d555f12ef6589cc3a579a2'
   console.log(chalk.red(`Registering ${thirdPackage}...`))
@@ -56,8 +68,8 @@ async function bootstrap() {
     thirdPackage,
     web3.utils.toWei('20', 'ether'),
     "https://raw.githubusercontent.com/gnosis/safe-contracts/102e632d051650b7c4b0a822123f449beaf95aed/package.json",
-    "0x0000000000000000000000000000000000000001",
-    { from: accounts[0] }
+    metadataHash,
+    { from: owner }
   )
 }
 
