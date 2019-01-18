@@ -33,9 +33,11 @@ async function bootstrap() {
     await mint(testAccounts[i], MINT_AMOUNT)
   }
 
+  console.log(``)
+
   // create some vouched packages
   const firstPackage = '0xB8c77482e45F1F44dE1745F52C74426C631bDD52'
-  console.log(chalk.cyan(`Registering ${firstPackage}...`))
+  console.log(chalk.cyan(`Registering package: ${firstPackage}...`))
   const firstMetadataUri = "https://raw.githubusercontent.com/zeppelinos/zos-vouching/master/package.json"
   const metadataHash = "0x0000000000000000000000000000000000000001"
   await mockVouching.register(
@@ -49,7 +51,7 @@ async function bootstrap() {
   await mockVouching.challenge(0, web3.utils.toWei('90', 'ether'), firstMetadataUri, metadataHash, { from: challenger1 })
 
   const secondPackage = '0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48'
-  console.log(chalk.cyan(`Registering ${secondPackage}...`))
+  console.log(chalk.cyan(`Registering package: ${secondPackage}...`))
   const secondMetadataUri = "https://raw.githubusercontent.com/zeppelinos/zos/98c9fc00699d0ed216950623539375fe1f0c2867/packages/lib/package.json"
   await mockVouching.register(
     secondPackage,
@@ -63,13 +65,31 @@ async function bootstrap() {
   await mockVouching.challenge(1, web3.utils.toWei('17', 'ether'), secondMetadataUri, metadataHash, { from: challenger2 })
 
   const thirdPackage = '0x9f8f72aa9304c8b593d555f12ef6589cc3a579a2'
-  console.log(chalk.cyan(`Registering ${thirdPackage}...`))
+  console.log(chalk.cyan(`Registering package: ${thirdPackage}...`))
   await mockVouching.register(
     thirdPackage,
     web3.utils.toWei('20', 'ether'),
     "https://raw.githubusercontent.com/gnosis/safe-contracts/102e632d051650b7c4b0a822123f449beaf95aed/package.json",
     metadataHash,
     { from: owner }
+  )
+
+
+  console.log(``)
+
+  console.log(chalk.cyan(`Challenger 1 vouching for package: ${thirdPackage}...`))
+  // assuming id assigned in previous register call is 2
+  await mockVouching.vouch(
+    2,
+    web3.utils.toWei('16', 'ether'),
+    { from: challenger1 }
+  )
+
+  console.log(chalk.cyan(`Challenger 2 vouching for package: ${thirdPackage}...`))
+  await mockVouching.vouch(
+    2,
+    web3.utils.toWei('440', 'ether'),
+    { from: challenger2 }
   )
 }
 
