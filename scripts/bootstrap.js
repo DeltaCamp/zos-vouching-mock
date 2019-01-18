@@ -35,7 +35,7 @@ async function bootstrap() {
 
   // create some vouched packages
   const firstPackage = '0xB8c77482e45F1F44dE1745F52C74426C631bDD52'
-  console.log(chalk.red(`Registering ${firstPackage}...`))
+  console.log(chalk.cyan(`Registering ${firstPackage}...`))
   const firstMetadataUri = "https://raw.githubusercontent.com/zeppelinos/zos-vouching/master/package.json"
   const metadataHash = "0x0000000000000000000000000000000000000001"
   await mockVouching.register(
@@ -49,7 +49,7 @@ async function bootstrap() {
   await mockVouching.challenge(0, web3.utils.toWei('90', 'ether'), firstMetadataUri, metadataHash, { from: challenger1 })
 
   const secondPackage = '0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48'
-  console.log(chalk.red(`Registering ${secondPackage}...`))
+  console.log(chalk.cyan(`Registering ${secondPackage}...`))
   const secondMetadataUri = "https://raw.githubusercontent.com/zeppelinos/zos/98c9fc00699d0ed216950623539375fe1f0c2867/packages/lib/package.json"
   await mockVouching.register(
     secondPackage,
@@ -63,7 +63,7 @@ async function bootstrap() {
   await mockVouching.challenge(1, web3.utils.toWei('17', 'ether'), secondMetadataUri, metadataHash, { from: challenger2 })
 
   const thirdPackage = '0x9f8f72aa9304c8b593d555f12ef6589cc3a579a2'
-  console.log(chalk.red(`Registering ${thirdPackage}...`))
+  console.log(chalk.cyan(`Registering ${thirdPackage}...`))
   await mockVouching.register(
     thirdPackage,
     web3.utils.toWei('20', 'ether'),
