@@ -5,11 +5,11 @@ const chalk = require('chalk')
 
 const MINT_AMOUNT = new BN(web3.utils.toWei('1000', 'ether'))
 
-async function bootstrap() {
+async function bootstrap () {
   const mockVouching = await MockVouching.deployed()
   const zepToken = await ZepToken.deployed()
 
-  async function mint(account, mintAmount) {
+  async function mint (account, mintAmount) {
     const balance = await zepToken.balanceOf(account)
     if (balance.lt(mintAmount)) {
       console.log(chalk.green(`Minting 1000 tokens to ${account}...`))
@@ -38,8 +38,8 @@ async function bootstrap() {
   // create some vouched packages
   const firstPackage = '0xB8c77482e45F1F44dE1745F52C74426C631bDD52'
   console.log(chalk.cyan(`Registering package: ${firstPackage}...`))
-  const firstMetadataUri = "https://raw.githubusercontent.com/zeppelinos/zos-vouching/master/package.json"
-  const metadataHash = "0x0000000000000000000000000000000000000001"
+  const firstMetadataUri = 'https://raw.githubusercontent.com/zeppelinos/zos-vouching/master/package.json'
+  const metadataHash = '0x0000000000000000000000000000000000000001'
   await mockVouching.register(
     firstPackage,
     web3.utils.toWei('88', 'ether'),
@@ -52,7 +52,7 @@ async function bootstrap() {
 
   const secondPackage = '0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48'
   console.log(chalk.cyan(`Registering package: ${secondPackage}...`))
-  const secondMetadataUri = "https://raw.githubusercontent.com/zeppelinos/zos/98c9fc00699d0ed216950623539375fe1f0c2867/packages/lib/package.json"
+  const secondMetadataUri = 'https://raw.githubusercontent.com/zeppelinos/zos/98c9fc00699d0ed216950623539375fe1f0c2867/packages/lib/package.json'
   await mockVouching.register(
     secondPackage,
     web3.utils.toWei('100', 'ether'),
@@ -69,11 +69,10 @@ async function bootstrap() {
   await mockVouching.register(
     thirdPackage,
     web3.utils.toWei('20', 'ether'),
-    "https://raw.githubusercontent.com/gnosis/safe-contracts/102e632d051650b7c4b0a822123f449beaf95aed/package.json",
+    'https://raw.githubusercontent.com/gnosis/safe-contracts/102e632d051650b7c4b0a822123f449beaf95aed/package.json',
     metadataHash,
     { from: owner }
   )
-
 
   console.log(``)
 
@@ -93,7 +92,7 @@ async function bootstrap() {
   )
 }
 
-module.exports = function(callback) {
+module.exports = function (callback) {
   console.log('Starting bootstrap...')
   bootstrap()
     .catch(error => {
