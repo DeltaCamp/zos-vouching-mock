@@ -26,7 +26,7 @@ $ yarn start
 Take note of the second account (1), and start a new zos session:
 
 ```
-$ zos session --from 0x62c404c71db462424a09b789ac318ff03830e8fd --expires 7200 --network local
+$ zos session --from 0x51f595ef681c3b3b6b6949fbbb36b7d98daa15bf --expires 7200 --network local
 ```
 
 If you changed the mnemonic, you should start a zos session using the second account address.

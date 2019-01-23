@@ -5,11 +5,11 @@ const chalk = require('chalk')
 
 const MINT_AMOUNT = new BN(web3.utils.toWei('1000', 'ether'))
 
-async function bootstrap() {
+async function bootstrap () {
   const mockVouching = await MockVouching.deployed()
   const zepToken = await ZepToken.deployed()
 
-  async function mint(account, mintAmount) {
+  async function mint (account, mintAmount) {
     const balance = await zepToken.balanceOf(account)
     if (balance.lt(mintAmount)) {
       console.log(chalk.green(`Minting 1000 tokens to ${account}...`))
@@ -37,7 +37,7 @@ async function bootstrap() {
   if (firstPackageOwner === '0x0000000000000000000000000000000000000000') {
     // create some vouched packages
     const firstPackage = '0xB8c77482e45F1F44dE1745F52C74426C631bDD52'
-    console.log(chalk.red(`Registering ${firstPackage}...`))
+    console.log(chalk.cyan(`Registering package ${firstPackage}...`))
     const firstMetadataUri = "https://raw.githubusercontent.com/zeppelinos/zos-vouching/master/package.json"
     const metadataHash = "0x0000000000000000000000000000000000000001"
     await mockVouching.register(
@@ -53,7 +53,7 @@ async function bootstrap() {
   const secondPackageOwner = await mockVouching.owner('1')
   if (secondPackageOwner === '0x0000000000000000000000000000000000000000') {
     const secondPackage = '0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48'
-    console.log(chalk.red(`Registering ${secondPackage}...`))
+    console.log(chalk.cyan(`Registering package ${secondPackage}...`))
     const secondMetadataUri = "https://raw.githubusercontent.com/zeppelinos/zos/98c9fc00699d0ed216950623539375fe1f0c2867/packages/lib/package.json"
     await mockVouching.register(
       secondPackage,
@@ -70,7 +70,7 @@ async function bootstrap() {
   const thirdPackageOwner = await mockVouching.owner('2')
   if (thirdPackageOwner === '0x0000000000000000000000000000000000000000') {
     const thirdPackage = '0x9f8f72aa9304c8b593d555f12ef6589cc3a579a2'
-    console.log(chalk.red(`Registering ${thirdPackage}...`))
+    console.log(chalk.cyan(`Registering package ${thirdPackage}...`))
     await mockVouching.register(
       thirdPackage,
       web3.utils.toWei('20', 'ether'),
@@ -82,19 +82,19 @@ async function bootstrap() {
 
   let thirdPackageChallenger1VouchAmount = await mockVouching.vouchedAmount('2', challenger1)
   if (thirdPackageChallenger1VouchAmount.toString() === '0') {
-    console.log(chalk.green(`Vouching 10 Z for package 2 by ${challenger1}`))
+    console.log(chalk.cyan(`Vouching 10 Z for package 2 by ${challenger1}`))
     await mockVouching.vouch('2', web3.utils.toWei('10', 'ether'), { from: challenger1 })
   }
 
   let thirdPackageChallenger2VouchAmount = await mockVouching.vouchedAmount('2', challenger2)
   if (thirdPackageChallenger2VouchAmount.toString() === '0') {
-    console.log(chalk.green(`Vouching 22 Z for package 2 by ${challenger2}`))
+    console.log(chalk.cyan(`Vouching 22 Z for package 2 by ${challenger2}`))
     await mockVouching.vouch('2', web3.utils.toWei('22', 'ether'), { from: challenger2 })
   }
 
 }
 
-module.exports = function(callback) {
+module.exports = function (callback) {
   console.log('Starting bootstrap...')
   bootstrap()
     .catch(error => {
