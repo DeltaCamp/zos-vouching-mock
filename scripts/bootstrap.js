@@ -33,28 +33,32 @@ async function bootstrap () {
     await mint(testAccounts[i], MINT_AMOUNT)
   }
 
-  const firstPackageOwner = await mockVouching.owner('0')
-  if (firstPackageOwner === '0x0000000000000000000000000000000000000000') {
+  const metadataHash = "0x0000000000000000000000000000000000000001"
+
+  const firstPackage = await mockVouching.getEntry('0')
+  const firstMetadataUri = "https://raw.githubusercontent.com/zeppelinos/zos-vouching/master/package.json"
+  if (firstPackage[1] === '0x0000000000000000000000000000000000000000') {
     // create some vouched packages
-    const firstPackage = '0xB8c77482e45F1F44dE1745F52C74426C631bDD52'
-    console.log(chalk.cyan(`Registering package ${firstPackage}...`))
-    const firstMetadataUri = "https://raw.githubusercontent.com/zeppelinos/zos-vouching/master/package.json"
-    const metadataHash = "0x0000000000000000000000000000000000000001"
+    const firstPackageAddress = '0xB8c77482e45F1F44dE1745F52C74426C631bDD52'
+    console.log(chalk.cyan(`Registering package ${firstPackageAddress}...`))
     await mockVouching.register(
-      firstPackage,
+      firstPackageAddress,
       web3.utils.toWei('88', 'ether'),
       firstMetadataUri,
       metadataHash,
       { from: owner }
     )
-    await mockVouching.challenge(0, web3.utils.toWei('90', 'ether'), firstMetadataUri, metadataHash, { from: challenger1 })
+
   }
 
-  const secondPackageOwner = await mockVouching.owner('1')
-  if (secondPackageOwner === '0x0000000000000000000000000000000000000000') {
+  console.log(chalk.yellow(`Challenging package 0 from ${challenger1}`))
+  await mockVouching.challenge(0, web3.utils.toWei('0.4', 'ether'), firstMetadataUri, metadataHash, { from: challenger1 })
+
+  const secondPackageEntry = await mockVouching.getEntry('1')
+  const secondMetadataUri = "https://raw.githubusercontent.com/zeppelinos/zos/98c9fc00699d0ed216950623539375fe1f0c2867/packages/lib/package.json"
+  if (secondPackageEntry[1] === '0x0000000000000000000000000000000000000000') {
     const secondPackage = '0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48'
     console.log(chalk.cyan(`Registering package ${secondPackage}...`))
-    const secondMetadataUri = "https://raw.githubusercontent.com/zeppelinos/zos/98c9fc00699d0ed216950623539375fe1f0c2867/packages/lib/package.json"
     await mockVouching.register(
       secondPackage,
       web3.utils.toWei('100', 'ether'),
@@ -62,13 +66,16 @@ async function bootstrap () {
       metadataHash,
       { from: owner }
     )
-
-    await mockVouching.challenge(1, web3.utils.toWei('42', 'ether'), secondMetadataUri, metadataHash, { from: challenger1 })
-    await mockVouching.challenge(1, web3.utils.toWei('17', 'ether'), secondMetadataUri, metadataHash, { from: challenger2 })
   }
 
-  const thirdPackageOwner = await mockVouching.owner('2')
-  if (thirdPackageOwner === '0x0000000000000000000000000000000000000000') {
+  console.log(chalk.yellow(`Challenging package 1 from ${challenger1}`))
+  await mockVouching.challenge(1, web3.utils.toWei('0.4', 'ether'), secondMetadataUri, metadataHash, { from: challenger1 })
+
+  console.log(chalk.yellow(`Challenging package 1 from ${challenger2}`))
+  await mockVouching.challenge(1, web3.utils.toWei('0.17', 'ether'), secondMetadataUri, metadataHash, { from: challenger2 })
+
+  const thirdPackageEntry = await mockVouching.getEntry('2')
+  if (thirdPackageEntry === '0x0000000000000000000000000000000000000000') {
     const thirdPackage = '0x9f8f72aa9304c8b593d555f12ef6589cc3a579a2'
     console.log(chalk.cyan(`Registering package ${thirdPackage}...`))
     await mockVouching.register(
@@ -80,13 +87,13 @@ async function bootstrap () {
     )
   }
 
-  let thirdPackageChallenger1VouchAmount = await mockVouching.vouchedAmount('2', challenger1)
+  let thirdPackageChallenger1VouchAmount = await mockVouching.getVouched('2', challenger1)
   if (thirdPackageChallenger1VouchAmount.toString() === '0') {
     console.log(chalk.cyan(`Vouching 10 Z for package 2 by ${challenger1}`))
     await mockVouching.vouch('2', web3.utils.toWei('10', 'ether'), { from: challenger1 })
   }
 
-  let thirdPackageChallenger2VouchAmount = await mockVouching.vouchedAmount('2', challenger2)
+  let thirdPackageChallenger2VouchAmount = await mockVouching.getVouched('2', challenger2)
   if (thirdPackageChallenger2VouchAmount.toString() === '0') {
     console.log(chalk.cyan(`Vouching 22 Z for package 2 by ${challenger2}`))
     await mockVouching.vouch('2', web3.utils.toWei('22', 'ether'), { from: challenger2 })

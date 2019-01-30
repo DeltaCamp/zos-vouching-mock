@@ -8,7 +8,13 @@ module.exports = function(deployer, networkName, accounts) {
   if (tdr.isDryRunNetworkName(networkName)) { return }
   deployer.then(async () => {
     const zepToken = await ZepToken.deployed()
-    if (shell.exec(`zos create MockVouching --init initialize --args ${web3.utils.toWei('10', 'ether')},${zepToken.address}  --network ${networkName} --from ${accounts[1]}`).code !== 0) {
+    const result = shell.exec(
+      `zos create MockVouching --init initialize \
+                               --args ${zepToken.address},${web3.utils.toWei('10', 'ether')},${web3.utils.toWei('10', 'ether')},${accounts[0]}  \
+                               --network ${networkName} \
+                               --from ${accounts[1]}`
+    )
+    if (result.code !== 0) {
       throw new Error('Migration failed')
     }
   })

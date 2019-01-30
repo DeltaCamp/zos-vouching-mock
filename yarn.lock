@@ -9095,9 +9095,9 @@ zos-truffle-merge@^0.0.3:
     commander "^2.19.0"
     shelljs "^0.8.3"
 
-zos-vouching@zeppelinos/zos-vouching#ae6b93e7965554304b8dbb420f4d133fe317fa6d:
+zos-vouching@zeppelinos/zos-vouching#d928ea1367b00aee95f87f660203780d26473c84:
   version "2.0.0"
-  resolved "https://codeload.github.com/zeppelinos/zos-vouching/tar.gz/ae6b93e7965554304b8dbb420f4d133fe317fa6d"
+  resolved "https://codeload.github.com/zeppelinos/zos-vouching/tar.gz/d928ea1367b00aee95f87f660203780d26473c84"
   dependencies:
     chalk "^2.4.1"
     ethjs-util "^0.1.6"
