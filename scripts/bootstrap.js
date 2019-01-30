@@ -14,7 +14,11 @@ async function bootstrap () {
     if (balance.lt(mintAmount)) {
       console.log(chalk.green(`Minting 1000 tokens to ${account}...`))
       await zepToken.mint(account, mintAmount)
-      await zepToken.approve(mockVouching.address, mintAmount, { from: account })
+      try {
+        await zepToken.approve(mockVouching.address, mintAmount, { from: account })
+      } catch (error) {
+        console.log(chalk.red(`Was unable to approve mock vouching spend for ${account}`))
+      }
     }
   }
 
@@ -26,7 +30,10 @@ async function bootstrap () {
   const testAccounts = [
     owner,
     challenger1,
-    challenger2
+    challenger2,
+    '0x8f7F92e0660DD92ecA1faD5F285C4Dca556E433e',
+    '0x883E6B4C10520E2bc2D5dEB78d8AE4C1f7752ce7',
+    '0x7A8cda94b311F58291d6F9E681599c915E31c338'
   ]
 
   for (i in testAccounts) {
