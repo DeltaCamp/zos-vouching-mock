@@ -82,7 +82,7 @@ async function bootstrap () {
   await mockVouching.challenge(1, web3.utils.toWei('0.17', 'ether'), secondMetadataUri, metadataHash, { from: challenger2 })
 
   const thirdPackageEntry = await mockVouching.getEntry('2')
-  if (thirdPackageEntry === '0x0000000000000000000000000000000000000000') {
+  if (thirdPackageEntry[1] === '0x0000000000000000000000000000000000000000') {
     const thirdPackage = '0x9f8f72aa9304c8b593d555f12ef6589cc3a579a2'
     console.log(chalk.cyan(`Registering package ${thirdPackage}...`))
     await mockVouching.register(
