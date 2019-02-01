@@ -1,6 +1,6 @@
 # ZOS Vouching Mock
 
-Sets up a local ganache node with the Zeppelin OS Vouching contracts and mock data.
+Sets up a local ganache node with the Zeppelin OS Vouching contracts and mock data.  In support of [zeppelin-vouching-app](https://github.com/DeltaCamp/zeppelin-vouching-app) and [zos-vouching](https://github.com/zeppelinos/zos-vouching)
 
 # Local Usage
 
