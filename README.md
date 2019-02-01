@@ -23,7 +23,7 @@ Start `ganache-cli`:
 $ yarn start
 ```
 
-Take note of the second account (1), and start a new zos session:
+Start a new zos session:
 
 ```
 $ zos session --from 0x51f595ef681c3b3b6b6949fbbb36b7d98daa15bf --expires 7200 --network local
