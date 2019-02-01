@@ -25,6 +25,6 @@
     "truffle-hdwallet-provider": "^1.0.0-web3one.5",
     "zos": "^2.1.0",
     "zos-truffle-merge": "^0.0.3",
-    "zos-vouching": "zeppelinos/zos-vouching#2b9acca3a458056fee810f5d1b150739ae438d4a"
+    "zos-vouching": "zeppelinos/zos-vouching#implement_vouching_contract_v_2_1"
   }
 }

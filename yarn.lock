@@ -9095,7 +9095,7 @@ zos-truffle-merge@^0.0.3:
     commander "^2.19.0"
     shelljs "^0.8.3"
 
-zos-vouching@zeppelinos/zos-vouching#2b9acca3a458056fee810f5d1b150739ae438d4a:
+zos-vouching@zeppelinos/zos-vouching#implement_vouching_contract_v_2_1:
   version "2.0.0"
   resolved "https://codeload.github.com/zeppelinos/zos-vouching/tar.gz/2b9acca3a458056fee810f5d1b150739ae438d4a"
   dependencies:
