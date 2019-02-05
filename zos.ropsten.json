@@ -608,7 +608,29 @@
     }
   },
   "solidityLibs": {},
-  "proxies": {},
+  "proxies": {
+    "zos-vouching-mock/Migrations": [
+      {
+        "address": "0xb889691e3831999cebc4b6f4e83ab69a1de4f4b1",
+        "version": "0.1.0",
+        "implementation": "0x10c48c883c0dcc852e214f2399fa29aa3d699424"
+      }
+    ],
+    "zos-vouching-mock/ZepToken": [
+      {
+        "address": "0x7a693b439596ac4ce0315a6eb31e31c825141ce1",
+        "version": "0.1.0",
+        "implementation": "0x8646f262ce3b6dc432b697c3eb858635783534e3"
+      }
+    ],
+    "zos-vouching-mock/MockVouching": [
+      {
+        "address": "0xa2f99b81c14a11aad4aff487b4f847487b8c953b",
+        "version": "0.1.0",
+        "implementation": "0x3a4aa04e21b5c7e1d7b8fddeff74bd03c69b8937"
+      }
+    ]
+  },
   "zosversion": "2",
   "version": "0.1.0"
 }
