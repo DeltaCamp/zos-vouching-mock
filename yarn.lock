@@ -5716,7 +5716,7 @@ onetime@^2.0.0:
   dependencies:
     mimic-fn "^1.0.0"
 
-openzeppelin-eth@^2.0.0, openzeppelin-eth@^2.0.2:
+openzeppelin-eth@2.0.2, openzeppelin-eth@^2.0.0:
   version "2.0.2"
   resolved "https://registry.yarnpkg.com/openzeppelin-eth/-/openzeppelin-eth-2.0.2.tgz#7aa169a64bd41b796aed485530aa19e6e5a3fc64"
   integrity sha512-gUdT24ozD5xXeB9tdTzHOYTpz7R1s0YVXhrYe5TSusiqP0YMqh97GB7Zugee2D6446cKxaE94BblgfgPNGaXRQ==
@@ -9095,9 +9095,9 @@ zos-truffle-merge@^0.0.3:
     commander "^2.19.0"
     shelljs "^0.8.3"
 
-"zos-vouching@https://github.com/zeppelinos/zos-vouching#master":
+zos-vouching@zeppelinos/zos-vouching#master:
   version "2.0.0"
-  resolved "https://github.com/zeppelinos/zos-vouching#b64afcaf063eb445bc5777c8f598d96211d2dadf"
+  resolved "https://codeload.github.com/zeppelinos/zos-vouching/tar.gz/a97f4271937353f0094eed63eb59f5233ae8e884"
   dependencies:
     chalk "^2.4.1"
     ethjs-util "^0.1.6"
