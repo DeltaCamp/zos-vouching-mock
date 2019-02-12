@@ -10,8 +10,6 @@
     "push": "zos push",
     "update-all": "zos update --all",
     "push-and-update": "yarn push && yarn update-all && zos-truffle-merge -n 1234 zos.dev-1234.json",
-    "bootstrap": "truffle exec scripts/bootstrap.js --network local",
-    "bootstrap-ropsten": "truffle exec scripts/bootstrap.js --network ropsten",
     "console": "truffle console --network local",
     "version": "truffle version"
   },

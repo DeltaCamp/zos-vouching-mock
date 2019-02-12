@@ -37,19 +37,13 @@ Push out the local contracts:
 $ zos push
 ```
 
-Migrate the contracts:
+Migrate the contracts and bootstrap the data:
 
 ```
 $ yarn migrate
 ```
 
-Bootstrap the contract data:
-
-```
-$ yarn bootstrap
-```
-
-To see what data is bootstrapped, have a look at `scripts/bootstrap.js`
+To see what data is bootstrapped, have a look at the migrations.
 
 
 # Deploying to Ropsten
@@ -57,5 +51,4 @@ To see what data is bootstrapped, have a look at `scripts/bootstrap.js`
 ```
 zos push --network ropsten --from <admin address>
 yarn migrate-ropsten
-yarn bootstrap-ropsten
 ```
