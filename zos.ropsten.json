@@ -1,7 +1,7 @@
 {
   "contracts": {
     "Migrations": {
-      "address": "0xdfd614f8c0b89061cc460fd566866e8db7e346ba",
+      "address": "0x562752c81ef47b3bde4efc856a11830f0d3e7bfb",
       "constructorCode": "608060405234801561001057600080fd5b50610726806100206000396000f300",
       "bodyBytecodeHash": "ed322cbf4ed292a107aba347be638075120cd1e115e7ed2e3e5994407bf69822",
       "localBytecodeHash": "64d7cd927f181556006662b9567859faf1f24d69d4964bd945ac6009e2bcc87c",
@@ -89,7 +89,7 @@
       }
     },
     "ZepToken": {
-      "address": "0x23205c1d600a610753aa827a4c0c5af9f5151e54",
+      "address": "0x46df0d1a2a9b9c65e1d0be9e848677332cf62c52",
       "constructorCode": "608060405234801561001057600080fd5b506116d0806100206000396000f300",
       "bodyBytecodeHash": "8a45d635b796af6edba02230b4d4ea79c95591243664ea4c801f1daebed64631",
       "localBytecodeHash": "966cd8e208e28a35a85d7611342945d9f81fa7b896997c9f1c8051f11dc93d6f",
@@ -229,7 +229,7 @@
       }
     },
     "MockVouching": {
-      "address": "0x26a50856b03f3c3994c2940eb5169091bbb4fd08",
+      "address": "0x9cdc0224799619d22bc38ff9a3f554d7bf27e16e",
       "constructorCode": "608060405234801561001057600080fd5b5061568d80620000216000396000f300",
       "bodyBytecodeHash": "2797862d03e260fa61a85bdb876dbec52beb2fff58a2f26b814182f73dacaec1",
       "localBytecodeHash": "bce8ccdae4bdb7944a1bf02543811beae7f862e657b6de86173242ec972aaccd",
@@ -611,23 +611,23 @@
   "proxies": {
     "zos-vouching-mock/Migrations": [
       {
-        "address": "0x633d4d08281482bd2200010820aa05a2b670d642",
+        "address": "0xb19d726f112644821ade42f47ff0713d024ae050",
         "version": "0.1.0",
-        "implementation": "0xdfd614f8c0b89061cc460fd566866e8db7e346ba"
+        "implementation": "0x562752c81ef47b3bde4efc856a11830f0d3e7bfb"
       }
     ],
     "zos-vouching-mock/ZepToken": [
       {
-        "address": "0xe19b00e0cf9ec67e5cf2861bed3aa43362b40e3d",
+        "address": "0xff5a8463f29978cbcded84be6f7cdeddf52ede42",
         "version": "0.1.0",
-        "implementation": "0x23205c1d600a610753aa827a4c0c5af9f5151e54"
+        "implementation": "0x46df0d1a2a9b9c65e1d0be9e848677332cf62c52"
       }
     ],
     "zos-vouching-mock/MockVouching": [
       {
-        "address": "0xfc0ff60bc037dff76e881fee29903b699d465ab5",
+        "address": "0x1c127465b8ba9cab06b014551ff5c809cadb59bd",
         "version": "0.1.0",
-        "implementation": "0x26a50856b03f3c3994c2940eb5169091bbb4fd08"
+        "implementation": "0x9cdc0224799619d22bc38ff9a3f554d7bf27e16e"
       }
     ]
   },
