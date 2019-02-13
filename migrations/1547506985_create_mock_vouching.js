@@ -12,7 +12,7 @@ module.exports = function(deployer, networkName, accounts) {
       `zos create MockVouching --init initialize \
                                --args ${zepToken.address},${web3.utils.toWei('10', 'ether')},${web3.utils.toWei('10', 'ether')},${accounts[0]}  \
                                --network ${networkName} \
-                               --from ${accounts[1]}`
+                               --from ${process.env.ADMIN_ADDRESS}`
     )
     if (result.code !== 0) {
       throw new Error('Migration failed')

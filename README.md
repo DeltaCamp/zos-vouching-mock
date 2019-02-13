@@ -23,13 +23,13 @@ Start `ganache-cli`:
 $ yarn start
 ```
 
-Start a new zos session:
+If you changed the mnemonic, you should update the ADMIN_ADDRESS variable in `.envrc` with another address (I use the second address listed when `ganache-cli` starts).
+
+Now start a new zos session:
 
 ```
-$ zos session --from 0x51f595ef681c3b3b6b6949fbbb36b7d98daa15bf --expires 7200 --network local
+$ yarn session
 ```
-
-If you changed the mnemonic, you should replace the above 'from' parameter with another address (I use the second address listed when `ganache-cli` starts).
 
 Push out the local contracts:
 
