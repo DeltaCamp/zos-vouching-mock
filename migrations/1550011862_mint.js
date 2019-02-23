@@ -32,7 +32,11 @@ module.exports = function(deployer, networkName) {
       // Chuck's addresses:
       '0x8f7F92e0660DD92ecA1faD5F285C4Dca556E433e',
       '0x883E6B4C10520E2bc2D5dEB78d8AE4C1f7752ce7',
-      '0x7A8cda94b311F58291d6F9E681599c915E31c338',
+      '0xB16970722511B283A0a9A3b31D190fb7975Af66f',
+      '0x7d083eD7BF460539CFfa3A983eB3CDa29474C2Cd',
+      '0x5312c2f88c767e47c5dec5bf5b13933ff48d540a',
+      '0x7e3a81d860a3f1acafbf6519b1f322ddb7980dd4',
+      '0xa505A904268Dd740C1603806D31fFe58BfB93B57',
       // Ramon's addresses:
       '0x15b7FeC273F6f09786ae3Efc6E0aA9Ea33f56508',
       '0x5C681875A0ef659D6d97Bc51c077783Db474dE47',
